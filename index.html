@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Download videos from Facebook, Instagram, TikTok, YouTube and more — instantly and directly." />
+    <!-- Replace assets/logo.jpg with your own image to change the top logo -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬇</text></svg>" />
+    <title>All Platform Video Downloader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+
+    <!-- Ambient background orbs -->
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo-mark">
+          <span class="logo-icon">⬇</span>
+          <span class="logo-text">VidDown</span>
+        </div>
+        <p class="header-tagline">All Platform Video Downloader</p>
+      </div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+
+      <!-- Top logo image (replace assets/logo.jpg to customize) -->
+      <div class="top-logo-wrap">
+        <div class="top-logo-ring">
+          <img
+            src="assets/logo.jpg"
+            alt="VidDown Logo"
+            class="top-logo-img"
+            id="top-logo"
+          />
+        </div>
+        <div class="top-logo-glow"></div>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <h1 class="hero-title">
+          Download Any Video,<br />
+          <span class="gradient-text">From Any Platform</span>
+        </h1>
+        <p class="hero-subtitle">Facebook · Instagram · TikTok · YouTube · Twitter · and more</p>
+      </section>
+
+      <!-- Input card -->
+      <section class="input-section">
+        <div class="glass-card input-card">
+          <p class="input-label">Paste your video link below</p>
+
+          <div class="input-row">
+            <span class="input-icon">🔗</span>
+            <input
+              type="url"
+              id="video-url"
+              class="url-input"
+              placeholder="Paste your video link here..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="clear-btn hidden" id="clear-btn" aria-label="Clear">✕</button>
+          </div>
+
+          <p class="url-error hidden" id="url-error">
+            Please enter a valid URL (must start with http or https).
+          </p>
+
+          <button class="btn-continue" id="btn-continue" disabled>
+            <span id="btn-label">Continue</span>
+            <span class="btn-arrow" id="btn-arrow">→</span>
+            <span class="ripple-el"></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Preview section -->
+      <section class="preview-section hidden" id="preview-section">
+
+        <!-- Loading -->
+        <div class="state-card glass-card" id="state-loading">
+          <div class="spinner">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
+          </div>
+          <p class="state-text">
+            Fetching video<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+          </p>
+        </div>
+
+        <!-- Error -->
+        <div class="state-card glass-card hidden" id="state-error">
+          <div class="state-icon">⚠️</div>
+          <h3 class="state-heading">Something went wrong</h3>
+          <p class="state-detail" id="error-msg">Unable to load the video. Check the link and try again.</p>
+          <button class="btn-retry" id="btn-retry">Try Again</button>
+        </div>
+
+        <!-- Result -->
+        <div class="result-card glass-card hidden" id="state-result">
+          <div class="result-top">
+            <h3 class="video-title" id="video-title">Video Title</h3>
+            <span class="platform-tag" id="platform-tag">Video</span>
+          </div>
+          <div class="player-wrap">
+            <video id="video-player" controls playsinline preload="metadata"></video>
+          </div>
+          <div class="result-actions">
+            <!-- Download button: JS handles blob download, no tab opening -->
+            <button class="btn-download" id="btn-download">
+              <span class="dl-icon">⬇</span>
+              <span id="dl-label">Download Video</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <p class="footer-text">
+        Developer <span class="footer-name">Sakib</span>
+        <span class="footer-chevron">›</span>
+      </p>
+    </footer>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>
